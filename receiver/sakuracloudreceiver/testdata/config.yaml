@@ -1,0 +1,4 @@
+sakuracloud:
+  collection_interval: 5s
+  access_token: ${env:SAKURACLOUD_ACCESS_TOKEN}
+  access_token_secret: ${env:SAKURACLOUD_ACCESS_TOKEN_SECRET}

@@ -1,0 +1,29 @@
+default:
+all_set:
+  metrics:
+    sakuracloud.server.cpu_time:
+      enabled: true
+    sakuracloud.server.disk.read:
+      enabled: true
+    sakuracloud.server.disk.write:
+      enabled: true
+    sakuracloud.server.network_interface.receive:
+      enabled: true
+    sakuracloud.server.network_interface.send:
+      enabled: true
+    sakuracloud.server.up:
+      enabled: true
+none_set:
+  metrics:
+    sakuracloud.server.cpu_time:
+      enabled: false
+    sakuracloud.server.disk.read:
+      enabled: false
+    sakuracloud.server.disk.write:
+      enabled: false
+    sakuracloud.server.network_interface.receive:
+      enabled: false
+    sakuracloud.server.network_interface.send:
+      enabled: false
+    sakuracloud.server.up:
+      enabled: false

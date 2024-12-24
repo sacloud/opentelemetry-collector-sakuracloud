@@ -1,0 +1,86 @@
+type: sakuracloud
+
+status:
+  class: receiver
+  stability:
+    development: [metrics]
+  codeowners:
+    active: [yamamoto-febc]
+
+attributes:
+  sakuracloud.server.id:
+    description: "The id of the server"
+    type: string
+  sakuracloud.server.name:
+    description: "The name of the server"
+    type: string
+  sakuracloud.server.zone:
+    description: "The name of the zone"
+    type: string
+  sakuracloud.server.interface_id:
+    description: "The id of the network interface"
+    type: string
+  sakuracloud.server.interface_index:
+    description: "The index of the network interface"
+    type: int
+  sakuracloud.server.disk_id:
+    description: "The id of the disk"
+    type: string
+  sakuracloud.server.disk_index:
+    description: "The index of disk"
+    type: int
+
+metrics:
+#  sakuracloud.servers.count:
+#    description: Server Count
+#    enabled: false
+#    gauge:
+#      value_type: int
+#    unit: "{servers}"
+  sakuracloud.server.up:
+    description: "Indicates whether a server is up (1) or down (0)"
+    enabled: true
+    gauge:
+      value_type: int
+    unit: ""
+    attributes: [sakuracloud.server.id, sakuracloud.server.name, sakuracloud.server.zone]
+  sakuracloud.server.cpu_time:
+    description: "CPU usage time per core in milliseconds. Values range from 0 to 1000"
+    enabled: false
+    gauge:
+      value_type: double
+    unit: "ms"
+    attributes: [sakuracloud.server.id, sakuracloud.server.name, sakuracloud.server.zone]
+  sakuracloud.server.network_interface.send:
+    description: "Network interface outgoing traffic per NIC"
+    enabled: false
+    gauge:
+      value_type: double
+    unit: "bps"
+    attributes: [sakuracloud.server.id, sakuracloud.server.name, sakuracloud.server.zone, sakuracloud.server.interface_id, sakuracloud.server.interface_index]
+  sakuracloud.server.network_interface.receive:
+    description: "Network interface incoming traffic per NIC"
+    enabled: false
+    gauge:
+      value_type: double
+    unit: "bps"
+    attributes: [sakuracloud.server.id, sakuracloud.server.name, sakuracloud.server.zone, sakuracloud.server.interface_id, sakuracloud.server.interface_index]
+  sakuracloud.server.disk.write:
+    description: "Disk write throughput per server"
+    enabled: false
+    gauge:
+      value_type: double
+    unit: "bps"
+    attributes: [sakuracloud.server.id, sakuracloud.server.name, sakuracloud.server.zone, sakuracloud.server.disk_id, sakuracloud.server.disk_index]
+  sakuracloud.server.disk.read:
+    description: "Disk read throughput per server"
+    enabled: false
+    gauge:
+      value_type: double
+    unit: "bps"
+    attributes: [sakuracloud.server.id, sakuracloud.server.name, sakuracloud.server.zone, sakuracloud.server.disk_id, sakuracloud.server.disk_index]
+
+tests:
+  goleak:
+    skip: true
+

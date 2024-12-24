@@ -1,0 +1,17 @@
+dist:
+  name: otelcol
+  description: Basic OTel Collector distribution for Saknotice Servers
+  output_path: ./dist
+  version: 0.116.0
+
+exporters:
+  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.116.0
+  - gomod: go.opentelemetry.io/collector/exporter/otlpexporter v0.116.0
+
+receivers:
+  - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.116.0
+  - gomod: github.com/sacloud/opentelemetry-collector-sakuracloud/receiver/sakuracloudreceiver v0.0.0
+
+replaces:
+  - github.com/sacloud/opentelemetry-collector-sakuracloud/receiver/sakuracloudreceiver => ../../receiver/sakuracloudreceiver
+  - go.opentelemetry.io/collector/exporter/debugexporter => ../../../../open-telemetry/opentelemetry-collector/exporter/debugexporter/
