@@ -43,6 +43,6 @@ service:
 
 ## License
 
-`sacloud/opentelemetry-collector-sakuracloud` Copyright (C) 2024 [The sacloud/opentelemetry-collector-sakuracloud Authors](AUTHORS).
+`sacloud/opentelemetry-collector-sakuracloud` Copyright (C) 2024-2025 [The sacloud/opentelemetry-collector-sakuracloud Authors](AUTHORS).
 
 This project is published under [Apache 2.0 License](LICENSE).
